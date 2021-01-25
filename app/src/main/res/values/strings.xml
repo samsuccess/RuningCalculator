@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RuningCalculator</string>
     <string name="run_calculator">Run Calculator</string>
+    <string name="intent_uri">calculator://run</string>
 </resources>
