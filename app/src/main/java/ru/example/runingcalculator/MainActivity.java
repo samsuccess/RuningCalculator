@@ -1,6 +1,7 @@
 package ru.example.runingcalculator;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -18,8 +19,10 @@ public class MainActivity<v> extends AppCompatActivity {
         run.setOnClickListener(v -> {
             Uri uri = Uri.parse(getString(R.string.intent_uri));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-
+            ActivityInfo ai = intent.resolveActivityInfo(getPackageManager(), intent.getFlags());
+            if (ai != null) {
+                startActivity(intent);
+            }
         });
     }
 }
